@@ -2,21 +2,26 @@ CC = gcc
 
 CFLAGS = -Wall -Wextra -std=c99
 
-SRCS = main.c memory.c chunk.c
-HEADERS = chunk.h common.h memory.h
+SRCDIR = src
+TARGETDIR = target
+SRCS = $(wildcard $(SRCDIR)/*.c)
+HEADERS = $(wildcard $(SRCDIR)/*.h)
 
-OBJS = $(SRCS:.c=.o)
-TARGET = clox
+OBJS = $(SRCS:$(SRCDIR)/%.c=$(TARGETDIR)/%.o)
+TARGET = $(TARGETDIR)/clox
 
-all: $(TARGET)
+all: $(TARGETDIR) $(TARGET)
+
+$(TARGETDIR):
+	mkdir -p $(TARGETDIR)
 
 $(TARGET): $(OBJS)
 	$(CC) $(CFLAGS) -o $@ $^
 
-%.o: %.c $(HEADERS)
+$(TARGETDIR)/%.o: $(SRCDIR)/%.c $(HEADERS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJS) $(TARGET)
+	rm -f $(TARGETDIR)
 
 .PHONY: all clean
