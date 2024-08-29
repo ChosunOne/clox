@@ -22,6 +22,6 @@ $(TARGETDIR)/%.o: $(SRCDIR)/%.c $(HEADERS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(TARGETDIR)
+	rm -rf $(TARGETDIR)
 
 .PHONY: all clean
