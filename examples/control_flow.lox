@@ -1,0 +1,17 @@
+var a = 1;
+
+if (true) {
+        a = 2;
+} else {
+        a = 3;
+}
+
+print a;
+
+if (false) {
+        a = 4;
+} else {
+        a = 6;
+}
+
+print a;
