@@ -225,6 +225,10 @@ static InterpretResult run() {
                         case OP_RETURN: {
                                 return INTERPRET_OK;
                         }
+                        default: {
+                                printf("BADBADBAD\n");
+                                break;
+                        }
                 }
         }
 
