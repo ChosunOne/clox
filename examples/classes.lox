@@ -1,0 +1,9 @@
+class Brioche {}
+
+print Brioche;
+print Brioche();
+
+var brioche = Brioche();
+brioche.first = 1;
+brioche.second = 2;
+print brioche.first + brioche.second;
