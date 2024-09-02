@@ -1,0 +1,38 @@
+class Donut {
+        cook() {
+                print "Dunk in the fryer.";
+                this.finish("sprinkles");
+        }
+
+        finish(ingredient) {
+                print "Finish with " + ingredient;
+        }
+}
+
+class Cruller < Donut {
+        finish(ingredient) {
+                super.finish("icing");
+        }
+}
+
+var cruller = Cruller();
+cruller.cook();
+cruller.finish("sprinkles");
+
+class A {
+        method() {
+                print "A";
+        }
+}
+
+class B < A {
+        method() {
+                var closure = super.method;
+                closure();
+        }
+}
+
+var b = B();
+b.method();
+
+
